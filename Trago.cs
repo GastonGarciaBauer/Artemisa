@@ -8,10 +8,13 @@ namespace Artemisa
 {
     class Trago : Producto
     {
-        public string dia { get; set; }
-        public Trago(int id, string nombre, int valor, string dia) : base(id, nombre, valor)
+        public string Dia { get; set; }
+        public bool ConAlcohol {  get; set; }
+        public Trago(int id, string nombre, int valor, int stock, List<string> ingredientes, string dia, bool conAlcohol) : base(id, nombre, valor, stock, ingredientes)
         {
-            this.dia = dia;
+            this.Stock = stock;
+            this.Dia = dia;
+            this.ConAlcohol = conAlcohol;
         }
         public override double CalcularPrecioFinal()
         {
@@ -19,22 +22,22 @@ namespace Artemisa
         }
         private double DescuentoDia()
         {
-            string d = dia.ToLower();
+            string d = Dia.ToLower();
 
             if (d == "lunes")
-                return valor - (0.3 * valor);
+                return Valor - (0.3 * Valor);
             else if (d == "martes")
-                return valor - (0.4 * valor);
+                return Valor - (0.4 * Valor);
             else if (d == "miercoles" || d == "miércoles")
-                return valor - (0.5 * valor);
+                return Valor - (0.5 * Valor);
             else if (d == "jueves")
-                return valor - (0.2 * valor);
+                return Valor - (0.2 * Valor);
             else if (d == "viernes")
-                return valor - (0.1 * valor);
+                return Valor - (0.1 * Valor);
             else if (d == "sabado" || d == "sábado")
-                return valor - (0.7 * valor);
+                return Valor - (0.7 * Valor);
             else
-                return valor;
+                return Valor;
         }
     }
 }

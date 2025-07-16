@@ -5,6 +5,7 @@ namespace Artemisa
 {
     internal class Program
     {
+        public static double subTotal = 0;
         static void Main(string[] args)
         {
             Ticket ticket = new Ticket();
@@ -40,87 +41,105 @@ namespace Artemisa
                 Console.WriteLine("\nPor favor, ingresá la cantidad de unidades que desees: \n");
                 int cantidad = Convert.ToInt32(Console.ReadLine());
 
+                
 
                 switch (trago)
                 {
                     case 1:
-                        Producto trago1 = new Trago(1, "Cascada Oriental", 3200, dia);
+                        Producto trago1 = new Trago(1, "Cascada Oriental", 3200, 15, new List<string> { "Vodka", "Lima", "Azúcar" }, dia, true);
 
                         ticket.AgregarTrago(trago1);
 
-                        Console.WriteLine($"\nValor del trago: {trago1.valor}\n");
+                        Console.WriteLine($"\nValor del trago: {trago1.Valor}\n");
 
                         Console.WriteLine($"\nValor con descuento: {((Trago)trago1).CalcularPrecioFinal()}\n");
 
-                        Console.WriteLine($"Subtotal: {(((Trago)trago1).CalcularPrecioFinal()) * cantidad}");
+                        Program.subTotal = Program.subTotal + (((Trago)trago1).CalcularPrecioFinal()) * cantidad;
+
+                        Console.WriteLine($"Subtotal: " + Program.subTotal);
+                        
 
 
                         break;
                     case 2:
-                        Producto trago2 = new Trago(2, "Exilio SurCoreano", 3100, dia);
+                        Producto trago2 = new Trago(2, "Exilio SurCoreano", 3100, 20, new List<string> { "Gin", "Campari", "Whisky" }, dia, true);
 
                         ticket.AgregarTrago(trago2);
 
-                        Console.WriteLine($"\nValor del trago: {trago2.valor}\n");
+                        Console.WriteLine($"\nValor del trago: {trago2.Valor}\n");
+
 
                         Console.WriteLine($"\nValor con descuento: {((Trago)trago2).CalcularPrecioFinal()}\n");
+                        
+                        Program.subTotal = Program.subTotal + (((Trago)trago2).CalcularPrecioFinal()) * cantidad;
 
-                        Console.WriteLine($"Subtotal: {(((Trago)trago2).CalcularPrecioFinal()) * cantidad}");
+                        Console.WriteLine($"Subtotal: " + Program.subTotal);
+
                         break;
                     case 3:
-                        Producto trago3 = new Trago(3, "Aguasturbias", 3000, dia);
+                        Producto trago3 = new Trago(3, "Aguasturbias", 3000, 10, new List<string> { "Ron", "Lima", "Albúmina" }, dia, true);
 
                         ticket.AgregarTrago(trago3);
 
-                        Console.WriteLine($"\nValor del trago: {trago3.valor}\n");
+                        Console.WriteLine($"\nValor del trago: {trago3.Valor}\n");
 
                         Console.WriteLine($"\nValor con descuento: {((Trago)trago3).CalcularPrecioFinal()}\n");
 
-                        Console.WriteLine($"Subtotal: {(((Trago)trago3).CalcularPrecioFinal()) * cantidad}");
+                        Program.subTotal = Program.subTotal + (((Trago)trago3).CalcularPrecioFinal()) * cantidad;
+
+                        Console.WriteLine($"Subtotal: " + Program.subTotal);
                         break;
                     case 4:
-                        Producto trago4 = new Trago(4, "Colorado on the Rocks", 3400, dia);
+                        Producto trago4 = new Trago(4, "Colorado on the Rocks", 3400, 13, new List<string> { "Menta", "Limón", "Soda" }, dia, false);
 
                         ticket.AgregarTrago(trago4);
 
-                        Console.WriteLine($"\nValor del trago: {trago4.valor}\n");
+                        Console.WriteLine($"\nValor del trago: {trago4.Valor}\n");
 
                         Console.WriteLine($"\nValor con descuento: {((Trago)trago4).CalcularPrecioFinal()}\n");
 
-                        Console.WriteLine($"Subtotal: {(((Trago)trago4).CalcularPrecioFinal()) * cantidad}");
+                        Program.subTotal = Program.subTotal + (((Trago)trago4).CalcularPrecioFinal()) * cantidad;
+
+                        Console.WriteLine($"Subtotal: " + Program.subTotal);
                         break;
                     case 5:
-                        Producto trago5 = new Trago(5, "Cucumelo Indígena", 3500, dia);
+                        Producto trago5 = new Trago(5, "Cucumelo Indígena", 3500, 9, new List<string> { "Tequila", "Lima", "Azúcar" }, dia, false);
 
                         ticket.AgregarTrago(trago5);
 
-                        Console.WriteLine($"\nValor del trago: {trago5.valor}\n");
+                        Console.WriteLine($"\nValor del trago: {trago5.Valor}\n");
 
                         Console.WriteLine($"\nValor con descuento: {((Trago)trago5).CalcularPrecioFinal()}\n");
 
-                        Console.WriteLine($"Subtotal: {(((Trago)trago5).CalcularPrecioFinal()) * cantidad}");
+                        Program.subTotal = Program.subTotal + (((Trago)trago5).CalcularPrecioFinal()) * cantidad;
+
+                        Console.WriteLine($"Subtotal: " + Program.subTotal);
                         break;
                     case 6:
-                        Producto trago6 = new Trago(6, "Jesus Christ Blood", 3700, dia);
+                        Producto trago6 = new Trago(6, "Jesus Christ Blood", 3700, 13, new List<string> { "Vodka", "Arándanos", "Float de Vino Tinto" }, dia, true);
 
                         ticket.AgregarTrago(trago6);
 
-                        Console.WriteLine($"\nValor del trago: {trago6.valor}\n");
+                        Console.WriteLine($"\nValor del trago: {trago6.Valor}\n");
 
                         Console.WriteLine($"\nValor con descuento: {((Trago)trago6).CalcularPrecioFinal()}\n");
 
-                        Console.WriteLine($"Subtotal: {(((Trago)trago6).CalcularPrecioFinal()) * cantidad}");
+                        Program.subTotal = Program.subTotal + (((Trago)trago6).CalcularPrecioFinal()) * cantidad;
+
+                        Console.WriteLine($"Subtotal: " + Program.subTotal);
                         break;
                     case 7:
-                        Producto trago7 = new Trago(7, "Amnistía Internacional", 3800, dia);
+                        Producto trago7 = new Trago(7, "Amnistía Internacional", 3800, 13, new List<string> { "Naranja", "Granadina", "Anís Estrellado" }, dia, false);
 
                         ticket.AgregarTrago(trago7);
 
-                        Console.WriteLine($"\nValor del trago: {trago7.valor}\n");
+                        Console.WriteLine($"\nValor del trago: {trago7.Valor}\n");
 
                         Console.WriteLine($"\nValor con descuento: {((Trago)trago7).CalcularPrecioFinal()}\n");
+                        
+                        Program.subTotal = Program.subTotal + (((Trago)trago7).CalcularPrecioFinal()) * cantidad;
 
-                        Console.WriteLine($"Subtotal: {(((Trago)trago7).CalcularPrecioFinal()) * cantidad}");
+                        Console.WriteLine($"Subtotal: " + Program.subTotal);
                         break;
                     default:
                         Console.WriteLine("\nPor favor, ingresá un número de Producto válido: \n");

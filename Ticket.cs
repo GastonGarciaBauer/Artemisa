@@ -16,10 +16,11 @@ namespace Artemisa
             foreach (Producto producto in Lista)
             {
                 {
-                    Console.WriteLine($"\nTrago: {producto.nombre}, Precio Final: {producto.CalcularPrecioFinal():C}");
+                    Console.WriteLine($"\nTrago: {producto.Nombre}, Precio Final: {producto.CalcularPrecioFinal():C}");
 
                 }
             }
+            Console.WriteLine($"\nTotal: {Program.subTotal}");
         }
         public void AgregarTrago(Producto producto)
         {
