@@ -10,15 +10,24 @@ namespace Artemisa
     {
         public string Dia { get; set; }
         public bool ConAlcohol {  get; set; }
-        public Trago(int id, string nombre, int valor, int stock, List<string> ingredientes, string dia, bool conAlcohol) : base(id, nombre, valor, stock, ingredientes)
+        public Trago(int id, string nombre, int valor, int stock, List<string> ingredientes, string tiempoPreparacion, bool aptoCeliacos, int nivelPicante, string dia, bool conAlcohol) : base(id, nombre, valor, stock, ingredientes, tiempoPreparacion, aptoCeliacos, nivelPicante)
         {
-            this.Stock = stock;
             this.Dia = dia;
             this.ConAlcohol = conAlcohol;
         }
         public override double CalcularPrecioFinal()
         {
             return DescuentoDia();
+        }
+        public override void MostrarInfo(int cantidad)
+        {
+            Console.WriteLine($"\nValor del trago: {Valor}\n");
+
+            Console.WriteLine($"\nValor con descuento: {CalcularPrecioFinal()}\n");
+
+            Program.subTotal += CalcularPrecioFinal() * cantidad;
+
+            Console.WriteLine($"Subtotal: " + Program.subTotal);
         }
         private double DescuentoDia()
         {

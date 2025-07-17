@@ -8,23 +8,22 @@ namespace Artemisa
 {
     class Ticket
     {
-        private List<Producto> lista = new List<Producto>();
-        public List<Producto> Lista => lista;
-
+        private List<ItemPedido> lista = new List<ItemPedido>();
+        public List<ItemPedido> Lista => lista;
+        
+        public void AgregarItem(Producto producto, int cantidad)
+        {
+            lista.Add(new ItemPedido(producto, cantidad));
+        }
         public void MostrarTicket()
         {
-            foreach (Producto producto in Lista)
+            foreach (ItemPedido item in Lista)
             {
-                {
-                    Console.WriteLine($"\nTrago: {producto.Nombre}, Precio Final: {producto.CalcularPrecioFinal():C}");
-
-                }
+                Producto producto = item.Producto;
+                string tipo = producto is Trago ? "Trago" : "Plato";
+                Console.WriteLine($"\n{tipo}: {producto.Nombre} x{item.Cantidad} - Precio Final unitario: {producto.CalcularPrecioFinal():C} - Total: {item.PrecioFinalPorItem():C}");
             }
             Console.WriteLine($"\nTotal: {Program.subTotal}");
-        }
-        public void AgregarTrago(Producto producto)
-        {
-            lista.Add(producto);
         }
     }
 }
